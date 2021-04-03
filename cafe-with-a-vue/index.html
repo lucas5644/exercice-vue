@@ -17,17 +17,38 @@
         farmers in France. Once you take your first bite, you will see why
         everyone can't get enough!
       </p>
+
+      <h2>Contact Us</h2>
+      <p>Address: {{ address }}</p>
+      <p>Phone: {{ phone }}</p>
+      <p>Email: {{ email }}</p>
+      <p>Hours:</p>
+      <ul>
+        <li>M-F: 06:00 to 16:00</li>
+        <li>Saturday: 07:00 to 14:00</li>
+        <li>Sunday: 07:00 to 12:00</li>
+      </ul>
+
       <footer class="footer">
-        <p>Copyright {{ restaurantName }} 2019</p>
+        <p>{{ getYear }}</p>
       </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       const app = new Vue({
         el: '#app',
         data: {
-          restaurantName: 'French Bakery'
+          restaurantName: "Café avec vue",
+          address: "9274 Beurre Ave, Paris, France",
+          phone: "+08 88 88 88 88 88",
+          email: "hello@cafewithavue.bakery",
+        },
+        computed: {
+          getYear() {
+            const currentYear = new Date().getFullYear()
+            return `Copyright ${this.restaurantName} ${currentYear}`
+          }
         }
       })
     </script>
